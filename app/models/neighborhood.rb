@@ -5,6 +5,8 @@ class Neighborhood < ApplicationRecord
 
   # Validations
 
+  validates :name, :presence => true
+
   validates :state, :presence => true
 
 end
