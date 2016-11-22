@@ -5,6 +5,8 @@ class Neighborhood < ApplicationRecord
 
   # Validations
 
+  validates :city, :presence => true
+
   validates :name, :uniqueness => { :scope => [:state, :city], :message => "already exists" }
 
   validates :name, :presence => true
