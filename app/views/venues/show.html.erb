@@ -5,13 +5,12 @@
         <h4 class="panel-title">
           <%= @venue.name %>
 
-          <% if @venue.neighborhood.present? %>
             <small class="text-muted">
-              <%= @venue.neighborhood.name %>,
-              <%= @venue.neighborhood.city %>,
-              <%= @venue.neighborhood.state %>
+              <% if @venue.neighborhood.present? %>
+                <%= @venue.neighborhood.name %>,
+                <%= @venue.address_formatted_address %>
+              <% end %>
             </small>
-          <% end %>
         </h4>
       </div>
 
