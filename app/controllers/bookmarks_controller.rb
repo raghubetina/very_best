@@ -35,6 +35,7 @@ class BookmarksController < ApplicationController
     @bookmark.venue_id = params[:venue_id]
     @bookmark.user_id = params[:user_id]
     @bookmark.notes = params[:notes]
+    @bookmark.image = params[:image]
 
     save_status = @bookmark.save
 
@@ -65,6 +66,7 @@ class BookmarksController < ApplicationController
     @bookmark.venue_id = params[:venue_id]
     @bookmark.user_id = params[:user_id]
     @bookmark.notes = params[:notes]
+    @bookmark.image = params[:image]
 
     save_status = @bookmark.save
 

@@ -86,6 +86,7 @@
         <th>Venue</th>
         <th>User</th>
         <th>Notes</th>
+        <th>Image</th>
         <th>Actions</th>
       </tr>
 
@@ -113,6 +114,7 @@
           <% end %>
         </td>
         <td><%= bookmark.notes %></td>
+        <td><img src='<%= bookmark.image %>' class='img-responsive'></td>
         <td>
           <a href="/bookmarks/<%= bookmark.id %>" class="btn btn-primary">Show</a>
           

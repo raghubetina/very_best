@@ -5,6 +5,7 @@ class CreateBookmarks < ActiveRecord::Migration
       t.integer :venue_id
       t.integer :user_id
       t.text :notes
+      t.string :image
 
       t.timestamps
 
