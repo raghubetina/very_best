@@ -63,7 +63,6 @@ class BookmarksController < ApplicationController
 
     @bookmark.dish_id = params[:dish_id]
     @bookmark.venue_id = params[:venue_id]
-    @bookmark.user_id = params[:user_id]
     @bookmark.notes = params[:notes]
 
     save_status = @bookmark.save
@@ -73,7 +72,7 @@ class BookmarksController < ApplicationController
 
       case referer
       when "/bookmarks/#{@bookmark.id}/edit", "/update_bookmark"
-        redirect_to("/bookmarks/#{@bookmark.id}", :notice => "Bookmark updated successfully.")
+        redirect_to("/dishes/#{@bookmark.dish.id}", :notice => "Bookmark updated successfully.")
       else
         redirect_back(:fallback_location => "/", :notice => "Bookmark updated successfully.")
       end
