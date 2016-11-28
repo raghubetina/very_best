@@ -84,7 +84,7 @@
           Popular dishes here
         </li>
 
-        <% @venue.specialties.order(:name).each do |dish| %>
+        <% @venue.specialties.order(:name).distinct.each do |dish| %>
           <li class="list-group-item">
             <a href="/dishes/<%= dish.id %>">
               <%= dish.name %>
