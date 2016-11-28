@@ -1,6 +1,6 @@
 class VenuesController < ApplicationController
   def index
-    @q = Venue.ransack(params[:q])
+    @q = current_user.bookmarked_venues.ransack(params[:q])
     @venues = @q.result(:distinct => true).includes(:bookmarks, :neighborhood, :fans, :specialties).page(params[:page]).per(100)
     @location_hash = Gmaps4rails.build_markers(@venues.where.not(:address_latitude => nil)) do |venue, marker|
       marker.lat venue.address_latitude
@@ -38,7 +38,7 @@ class VenuesController < ApplicationController
 
       case referer
       when "/venues/new", "/create_venue"
-        redirect_to("/venues")
+        redirect_to("/dishes")
       else
         redirect_back(:fallback_location => "/", :notice => "Venue created successfully.")
       end

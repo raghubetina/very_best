@@ -33,7 +33,7 @@
           Venue
         </label>
 
-        <%= select_tag(:venue_id, options_from_collection_for_select(Venue.all, :id, :name, @bookmark.venue_id), :class => "form-control") %>
+        <%= select_tag(:venue_id, options_from_collection_for_select(Venue.order(:name), :id, :name, @bookmark.venue_id), :class => "form-control") %>
       </div>
 
       

@@ -76,7 +76,7 @@
                     Venue
                   </label>
 
-                  <%= select_tag(:venue_id, options_from_collection_for_select(Venue.all, :id, :name), :class => "form-control input-sm", :prompt => "Choose a venue...") %>
+                  <%= select_tag(:venue_id, options_from_collection_for_select(Venue.order(:name), :id, :name), :class => "form-control input-sm", :prompt => "Choose a venue...") %>
                 </div>
 
                 <button class="btn btn-primary btn-sm">
@@ -103,5 +103,11 @@
         <%= paginate @dishes, theme: 'twitter-bootstrap-4' %>
       </div>
     </div>
+  </div>
+
+  <div class="col-md-3">
+    <a href="/venues/new" class="btn btn-block btn-success">
+      Add a new venue
+    </a>
   </div>
 </div>

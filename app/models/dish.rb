@@ -19,8 +19,13 @@ class Dish < ApplicationRecord
 
   # Validations
 
-  validates :name, :uniqueness => true
+  validates :name, :uniqueness => { :case_sensitive => false }
 
   validates :name, :presence => true
 
+  before_save :titleize_name
+
+  def titleize_name
+    self.name = name.titleize
+  end
 end
