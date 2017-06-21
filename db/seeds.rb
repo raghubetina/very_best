@@ -14,7 +14,7 @@ Venue.destroy_all
 User.destroy_all
 Bookmark.destroy_all
 
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
+AdminUser.create(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
 
 cuisine_hashes = [
   { :name => "Breakfast" },
@@ -147,7 +147,7 @@ usernames.each do |username|
   user = User.new
   user.username = username
   user.email = "#{username}@example.com"
-  user.password = "12341234"
+  user.password = "password"
   user.save
 end
 
