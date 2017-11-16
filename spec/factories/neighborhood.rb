@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :neighborhood do
-    name { Faker::Lorem.word }
-    city { Faker::Address.city }
-    state { Faker::Address.state }
+    sequence(:name) { |n| "Neighborhood #{n}" }
+    sequence(:city) { |n| "City #{n}" }
+    sequence(:state) { |n| "State #{n}" }
   end
 end

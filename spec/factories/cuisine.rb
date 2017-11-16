@@ -1,7 +1,7 @@
 FactoryBot.define do
 
   factory :cuisine do
-    name { Faker::Address.state + "#{rand(10000)}" }
+    sequence(:name) { |n| "Cuisine #{n}" }
 
     factory :cuisine_with_dishes do
       transient do
