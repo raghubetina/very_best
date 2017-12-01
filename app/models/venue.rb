@@ -1,5 +1,5 @@
 class Venue < ApplicationRecord
-  before_save :geocode_address
+  before_validation :geocode_address
 
   def geocode_address
     if self.address.present?
@@ -38,7 +38,7 @@ class Venue < ApplicationRecord
 
   # Validations
 
-  validates :name, :uniqueness => { :scope => [:neighborhood_id], :message => "already exists" }
+  validates :name, :uniqueness => { :scope => [:address_formatted_address], :message => "already exists", :case_sensitive => false }
 
   validates :name, :presence => true
 

@@ -19,8 +19,7 @@ class Dish < ApplicationRecord
 
   # Validations
 
-  validates :name, :uniqueness => true
+  validates :name, :uniqueness => { :case_sensitive => false }
 
   validates :name, :presence => true
-
 end
