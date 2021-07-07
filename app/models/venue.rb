@@ -1,8 +1,8 @@
 class Venue < ApplicationRecord
-  before_save :geocode_address
+  before_validation :geocode_address
 
   def geocode_address
-    if self.address.present?
+    if !Rails.env.test? && self.address.present?
       url = "http://maps.googleapis.com/maps/api/geocode/json?address=#{URI.encode(self.address)}"
 
       raw_data = open(url).read
@@ -38,7 +38,7 @@ class Venue < ApplicationRecord
 
   # Validations
 
-  validates :name, :uniqueness => { :scope => [:neighborhood_id], :message => "already exists" }
+  validates :name, :uniqueness => { :scope => [:address_formatted_address], :message => "already exists", :case_sensitive => false }
 
   validates :name, :presence => true
 
