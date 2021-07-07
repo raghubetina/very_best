@@ -2,7 +2,7 @@ class Venue < ApplicationRecord
   before_validation :geocode_address
 
   def geocode_address
-    if self.address.present?
+    if !Rails.env.test? && self.address.present?
       url = "http://maps.googleapis.com/maps/api/geocode/json?address=#{URI.encode(self.address)}"
 
       raw_data = open(url).read
